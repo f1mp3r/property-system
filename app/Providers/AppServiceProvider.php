@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Contracts\PropertyFetchContract;
+use App\Models\Property;
+use App\Observers\PropertyObserver;
+use App\Services\PropertyFetchService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(PropertyFetchContract::class, PropertyFetchService::class);
     }
 
     /**
@@ -23,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

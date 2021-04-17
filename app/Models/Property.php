@@ -5,21 +5,46 @@ namespace App\Models;
 use App\Casts\Json;
 use App\Enums\AgentJobTypeEnum;
 use App\Enums\PropertyType;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * Class Property
+ *
+ * @property int $id
+ * @property string $remote_uuid
+ * @property string $county
+ * @property string $country
+ * @property string $town
+ * @property string $description
+ * @property string $address
+ * @property string $image_url
+ * @property string $thumbnail_url
+ * @property string $latitude
+ * @property string $longitude
+ * @property int $bedrooms
+ * @property double $bathrooms
+ * @property double $price
+ * @property PropertyType $type
+ * @property object $property_type
+ * @property Collection $agents
+ * @property Collection $sellers
+ * @property Collection $viewers
+ * @package App\Models
+ */
 class Property extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'remote_uuid',
         'county',
         'country',
         'town',
         'description',
-        'details_url',
-        'displayable_address',
+        'address',
         'image_url',
         'thumbnail_url',
         'latitude',
@@ -28,6 +53,7 @@ class Property extends Model
         'bathrooms',
         'price',
         'type',
+        'data_hash',
         'property_type',
     ];
 

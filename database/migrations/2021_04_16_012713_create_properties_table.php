@@ -15,12 +15,12 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->uuid('remote_uuid')->unique();
             $table->string('county')->nullable()->default(null);;
             $table->string('country')->nullable()->default(null);;
             $table->string('town')->nullable()->default(null);;
             $table->text('description')->nullable()->default(null);;
-            $table->string('details_url')->nullable()->default(null);;
-            $table->string('displayable_address')->nullable()->default(null);;
+            $table->string('address')->nullable()->default(null);;
             $table->string('image_url')->nullable()->default(null);;
             $table->string('thumbnail_url')->nullable()->default(null);;
             $table->string('latitude')->nullable()->default(null);
@@ -30,6 +30,7 @@ class CreatePropertiesTable extends Migration
             $table->decimal('price', 12);
             $table->string('type')->comment('sale or rent');
             $table->text('property_type')->default('{}');
+            $table->string('data_hash')->nullable()->default(null)->index();
             $table->timestamps();
         });
     }

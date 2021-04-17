@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Class Agent
+ * @property int $id
  * @property string $first_name
  * @property string $last_name
  * @property string $phone
