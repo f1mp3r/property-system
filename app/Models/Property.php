@@ -87,4 +87,15 @@ class Property extends Model
     {
         return $this->agents(AgentJobTypeEnum::Viewing(), true);
     }
+
+    public function getSummaryAttribute(): string
+    {
+        return sprintf(
+            '%s bedroom %s bathroom %s %s',
+            $this->bedrooms,
+            $this->bathrooms,
+            $this->property_type->title,
+            $this->type->is(PropertyType::Rent) ? 'to rent' : 'for sale'
+        );
+    }
 }
