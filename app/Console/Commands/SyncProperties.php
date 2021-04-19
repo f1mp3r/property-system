@@ -28,7 +28,7 @@ class SyncProperties extends Command
      * @param PropertyFetchContract $fetcher
      * @return int
      */
-    public function handle(PropertyFetchContract $fetcher)
+    public function handle(PropertyFetchContract $fetcher): int
     {
         $this->info('Start processing');
 
